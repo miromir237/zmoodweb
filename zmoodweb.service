@@ -1,0 +1,13 @@
+[Unit]
+Description=ZmoodWeb Service
+After=network.target zmoodapi.service
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/zmoodweb
+Environment="PATH=/home/pi/zmoodweb"
+ExecStart=/home/pi/.local/bin/uwsgi --ini /home/pi/zmoodweb/zmoodweb.ini 
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
